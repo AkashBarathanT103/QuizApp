@@ -12,10 +12,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         submitButton=findViewById(R.id.clickButton);
-        submitButton.setOnClickListener(new View.OnClickListener()){
+        submitButton.setOnClickListener(new View.OnClickListener(){
             @Override
-                     
+            public void onClick(View v){
+                System.out.println("Hello Mom");
+            }
 
-        }
+        })
     }
 }
