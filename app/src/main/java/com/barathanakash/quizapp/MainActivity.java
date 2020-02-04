@@ -1,7 +1,9 @@
 package com.barathanakash.quizapp;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.widget.Button;
 import android.view.View;
 import android.util.Log;
@@ -15,7 +17,21 @@ public class MainActivity extends AppCompatActivity {
     EditText responseText;
     TextView displayText;
     final MediaPlayer bgm =MediaPlayer.create(this, R.raw.music);
+
     @Override
+    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
+        super.onCreate(savedInstanceState, persistentState);
+
+        Button playMusic = (Button) this.findViewById(R.id.soundButton);
+        playMusic.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                bgm.start();
+            }
+        });
+    }
+
+    /*@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -44,14 +60,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        Button playMusic = (Button) this.findViewById(R.id.soundButton);
-        playMusic.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                bgm.start();
-            }
-        });
-        }
+
+        }*/
 
 
 
