@@ -11,27 +11,39 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.media.MediaPlayer;
+import android.media.AudioManager;
 
 public class MainActivity extends AppCompatActivity {
     Button submitButton;
     EditText responseText;
     TextView displayText;
-    final MediaPlayer bgm =MediaPlayer.create(this, R.raw.music);
+     //MediaPlayer bgm =MediaPlayer.create(this, R.raw.music2);
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+        super.onCreate(savedInstanceState);
 
-        Button playMusic = (Button) this.findViewById(R.id.soundButton);
+        /*Button playMusic = this.findViewById(R.id.soundButton);
         playMusic.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 bgm.start();
             }
+        });*/
+       Button one = (Button) this.findViewById(R.id.soundButton);
+        final MediaPlayer mp = MediaPlayer.create(this, R.raw.music);
+        one.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                mp.start();
+                System.out.println("music playing");
+
+            }
         });
+
     }
 
-    /*@Override
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -59,9 +71,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button one =  this.findViewById(R.id.soundButton);
+        final MediaPlayer mp = MediaPlayer.create(this, R.raw.music);
+        one.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                mp.start();
+                System.out.println("music playing");
 
+            }
+        });
 
-        }*/
+        }
 
 
 
